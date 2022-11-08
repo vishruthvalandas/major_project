@@ -190,7 +190,6 @@
             res = await contract.all_product_details(product_id);
             document.getElementById("product_id_c").value = res[0];
             document.getElementById("product_name_c").value = res[1];
-            document.getElementById("batch_no").value = res[2];
             document.getElementById("owner_address").value = res[3];
             if(res[4] == 0){
               document.getElementById("description").value = "with manufacturer";
@@ -204,13 +203,19 @@
               acc = await ethereum.request({method:"eth_requestAccounts"});
             }
 
-            if(acc[0].toLowerCase() == res[3].toLowerCase()&&res[2].toLowerCase()==batch){
+            if(acc[0].toLowerCase() == res[3].toLowerCase()&&res[2]==batch){
               alert("original product accept")
             }else if((acc[0].toLowerCase() != res[3].toLowerCase()) && res[4] == 2){
               alert("This product is already owned by a customer , reject the product ")
             }else if(res[3] == "0x0000000000000000000000000000000000000000"){
               alert("This Product Was Never Manufactured");
               document.getElementById("description").value = "Never Manufactured";
+              document.getElementById("product_name_c").value = "Not Available";
+              document.getElementById("owner_address").value = "Not Available";
+            }
+            else{
+              alert("batch no is different");
+              document.getElementById("description").value = "Not Available";
               document.getElementById("product_name_c").value = "Not Available";
               document.getElementById("owner_address").value = "Not Available";
             }
