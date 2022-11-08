@@ -185,7 +185,6 @@
             res = await contract.all_product_details(product_id);
             document.getElementById("product_id_c").value = res[0];
             document.getElementById("product_name_c").value = res[1];
-            document.getElementById("batch_no").value = res[2];
             document.getElementById("owner_address").value = res[3];
             if(res[4] == 0){
               document.getElementById("description").value = "with manufacturer";
@@ -195,17 +194,19 @@
               document.getElementById("description").value = "with customer";
             }
 
-            if(res[2] == "0x0000000000000000000000000000000000000000"){
+            if(res[3] == "0x0000000000000000000000000000000000000000"){
               alert("This Product Was Never Manufactured");
               document.getElementById("description").value = "Never Manufactured";
               document.getElementById("product_name_c").value = "Not Available";
               document.getElementById("owner_address").value = "Not Available";
             }
-            else{
+            if(res[2]!=batch){
+              alert("batch no is different");
               document.getElementById("description").value = "Not Available";
               document.getElementById("product_name_c").value = "Not Available";
               document.getElementById("owner_address").value = "Not Available";
             }
+
       }
       var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
       html5QrcodeScanner.render(onScanSuccess);
