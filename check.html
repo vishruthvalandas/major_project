@@ -209,12 +209,14 @@
               alert("This product is already owned by a customer , reject the product ")
             }else if(res[3] == "0x0000000000000000000000000000000000000000"){
               alert("This Product Was Never Manufactured");
+              document.getElementById("product_id_c").value = "Not Available";
               document.getElementById("description").value = "Never Manufactured";
               document.getElementById("product_name_c").value = "Not Available";
               document.getElementById("owner_address").value = "Not Available";
             }
             else{
               alert("batch no is different");
+              document.getElementById("product_id_c").value = "Not Available";
               document.getElementById("description").value = "Not Available";
               document.getElementById("product_name_c").value = "Not Available";
               document.getElementById("owner_address").value = "Not Available";
