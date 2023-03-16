@@ -123,7 +123,7 @@
         un = document.getElementById("product_name").value;
         ub =  document.getElementById("batch_no").value;
 
-        contract = new ethers.Contract("0x2858D955fD66126687bd9958526e7DCb0E6E9F1d",abi,signer);
+        contract = new ethers.Contract("0x746496be6c62ff1D0455630b9f9042014ea0041A",abi,signer);
         res = await contract.add_product_details(ui,un,ub);
         console.log(res);
 	      //console.log("hello");
@@ -139,7 +139,7 @@
         ui = document.getElementById("t-a").value;
         ua = document.getElementById("t-d").value;
 
-        contract = new ethers.Contract("0x2858D955fD66126687bd9958526e7DCb0E6E9F1d",abi,signer);
+        contract = new ethers.Contract("0x746496be6c62ff1D0455630b9f9042014ea0041A",abi,signer);
         res = await contract.transfer_owner_ship(ui,ua);
         console.log(res);
 
