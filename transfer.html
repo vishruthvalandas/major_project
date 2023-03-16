@@ -120,7 +120,7 @@
       ui = document.getElementById("product_id_t").value;
       ua = document.getElementById("receiver_address_t").value;
 
-      contract = new ethers.Contract("0x2858D955fD66126687bd9958526e7DCb0E6E9F1d",abi,signer);
+      contract = new ethers.Contract("0x746496be6c62ff1D0455630b9f9042014ea0041A",abi,signer);
       res = await contract.transfer_owner_ship(ui,ua);
       alert("ownership is transferred successfully ");
 
