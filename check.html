@@ -186,7 +186,7 @@
       async function onScanSuccess(decodedText, decodedResult) {
         var batch =  document.getElementById("batch_no").value;
         var product_id = decodedResult.decodedText;
-        contract = new ethers.Contract("0x2858D955fD66126687bd9958526e7DCb0E6E9F1d",abi,provider);
+        contract = new ethers.Contract("0x746496be6c62ff1D0455630b9f9042014ea0041A",abi,provider);
             res = await contract.all_product_details(product_id);
             document.getElementById("product_id_c").value = res[0];
             document.getElementById("product_name_c").value = res[1];
